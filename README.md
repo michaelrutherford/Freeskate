@@ -1,2 +1,2 @@
 # Freeskate
-Unfinished project and test files.
+Unfinished projects and test files.
