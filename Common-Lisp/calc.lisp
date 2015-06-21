@@ -1,5 +1,5 @@
-(defconstant MAX 99)
-(defconstant MIN -99)
+(setf MAX 99)
+(setf MIN -99)
 (defun addfn (f s)
   (cond ((or (not (integerp f)) (not (integerp s))) (error "Error"))
         ((or (> (+ f s) MAX) (< (+ f s) MIN)) (error "Error")))
