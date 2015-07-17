@@ -4,12 +4,12 @@
                        tree       squid
                        coconut    radio
                        skull      vector
-		                   history    planet
+                       history    planet
                        hamburger  chair
                        stone      grape
                        goose      matrix
                        goldfish   ninja
-	                     cabin      octopus
+                       cabin      octopus
                        kneecap    valley
                        flower     camera
                        cereal     agent
@@ -21,7 +21,7 @@
                        warrior    granola
                        falcon     trashcan
                        rock       knight
-		                   particle   terrace))
+                       particle   terrace))
 (defparameter *adjv* '(flaming    blue
                        flying     cold
                        sad        red
@@ -50,7 +50,7 @@
                        break    drive
                        rise     dodge
                        collapse lean
-		                   awaken   sprint
+                       awaken   sprint
                        crush    climb
                        fall     miss
                        freeze   create
