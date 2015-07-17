@@ -66,8 +66,8 @@
                            (elt *noun* (random (length *noun*)))))
         ((eq form 2) (list (elt *noun* (random (length *noun*))) 
                            (elt *verb* (random (length *verb*)))))
-	      ((eq form 3) (list (elt *verb* (random (length *verb*)))
-			                     (elt *noun* (random (length *noun*)))))
+        ((eq form 3) (list (elt *verb* (random (length *verb*)))
+			   (elt *noun* (random (length *noun*)))))
         ((eq form 4) (list 'the 
                            (elt *noun* (random (length *noun*)))))
         ((eq form 5) (list 'the 
