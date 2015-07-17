@@ -55,11 +55,9 @@
                        fall     miss
                        freeze   create
                        remember burn))
-(defparameter *form* (rnd-gen))
-(defun rnd-gen ()
-  (random 7))
+(defparameter *form* 0)
 (defun gen ()
-  (setq *form* (rnd-gen))
+  (setq *form* (random 7))
   (cond ((eq *form* 0) (list (elt *adjv* (random (length *adjv*)))
                              (elt *noun* (random (length *noun*)))))
         ((eq *form* 1) (list (elt *noun* (random (length *noun*))) 
