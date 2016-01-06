@@ -1,5 +1,6 @@
 # Freeskate
 Unfinished projects and test files.
+
 ### License
-Freeskate is licensed under MIT, see LICENSE
+Freeskate is licensed under the Apache License v2.0, see LICENSE
 
