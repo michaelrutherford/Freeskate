@@ -134,13 +134,13 @@ float solve (char a[50])
                 for (int i = 0; i < len (a); i++) {
                         float fdist = 1;
 			float bdist = 1;
-                        if (a[i] == "!") {
+                        if (strcmp (a[i], "!") == 0) {
                                 for (int y = i; y < len (a); y++) {
-                                        if (a[y] == "^") {
+                                        if (strcmp (a[y], "^") == 0) {
                                                 i = y;
                                                 goto exp;
                                                 break;
-                                        } else if (a[y] != "^" && y == len (a)) {
+                                        } else if (strcmp (a[y], "^") != 0 && y == len (a)) {
                                                 break;
                                         }
                                 }
