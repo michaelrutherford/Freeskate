@@ -233,20 +233,20 @@ int main()
 			}
 			his[hct] = ans;
 			hct++;
-	      		tst = 1;
-		   	act = 1;
+	   	tst = 1;
+		  act = 1;
 			break;
 			break;
-	       	case '!':
+	  case '!':
 			ans = fct(fnum);
-		  	printf("%.1f! = %.1f", fnum, ans);
+		  printf("%.1f! = %.1f", fnum, ans);
 			printf("\n");
 			his[hct] = ans;
 			hct++;
 			hcn++;
-		  	tst = 1;
-		   	act = 1;
-		   	break;
+		  tst = 1;
+		  act = 1;
+		  break;
 			break;
 		default:
 			printf("ERROR 4");
@@ -256,7 +256,7 @@ int main()
 			break;
 			break;
 			exit(0);
-  		}
+  	}
 	}
 	if(err != 1 && tst == 1) {
 		goto r;
