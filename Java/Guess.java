@@ -11,7 +11,7 @@ public class Guess {
         while (act != 0) {
             switch(lct) {
                 case 1:
-                	System.out.println("GUESS A VALUE BETWEEN 0 AND 255");
+                    System.out.println("GUESS A VALUE BETWEEN 0 AND 255");
                     short agn = 1;
                     int gss = 0;
                     trk = 0;
@@ -35,13 +35,13 @@ public class Guess {
                                     lct = 1;
                                     break;
                                 } else if (agn == 0) {
-                                		act = 0;
-                                		System.exit(0);
-                                  } else {
-									System.out.println("INVALID RESPONSE.");
-										act = 0;
-										System.exit(0);
-                            		 }
+                               	    act = 0;
+                                    System.exit(0);
+                                } else {
+				    System.out.println("INVALID RESPONSE.");
+	       			    act = 0;
+				    System.exit(0);
+                            	}
                         } else {
                             if (gss > ans) {
                                 System.out.println("TOO HIGH. GUESS AGAIN.");
