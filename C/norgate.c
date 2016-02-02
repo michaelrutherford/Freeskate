@@ -26,7 +26,7 @@ int ecode = 0;
 int hist = 0;
 float history[50];
 
-int main () 
+int main (int argc, char *argv[]) 
 {
         clear ();
         start:
