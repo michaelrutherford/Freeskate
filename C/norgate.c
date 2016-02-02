@@ -30,7 +30,7 @@ int main ()
         clear ();
         start:
         printf ("Enter an equation.\n")
-        char[50] input = "";
+        char input[50] = "";
         scanf ("%s", input);
         if (input != NULL) {
                 ecode = 6;
@@ -38,13 +38,13 @@ int main ()
         }
         input = in;
         if strings.Contains (input, "history") {
-                for (float hval = 0; hval < hist; hval++) {
+                for (int hval = 0; hval < hist; hval++) {
                         printf ("%f", history[hval]);
                 }
         } else if (strings.Contains (input, "exit")) {
                 exit (0);
         } else {
-                char[50] calc = solve (splice (input));
+                char calc[50] = solve (splice (input));
                 if (hist >= 50) {
                         clear ();
                 }
@@ -67,7 +67,7 @@ char[50] splice (char[50] a)
         return eqcoll;
 }
 
-float solve (char[50] a) 
+float solve (char a[50]) 
 {
         float answer = 0;
         float opcount = 0;
@@ -97,7 +97,7 @@ float solve (char[50] a)
         opcount--;
         for (opcount >= 0) {
                 exp:
-                for (float i = 0; i < len (a); i++) {
+                for (int i = 0; i < len (a); i++) {
                         float fdist = 1;
 			float bdist = 1;
                         if (a[i] == "^") {
@@ -106,7 +106,7 @@ float solve (char[50] a)
                                                 fdist++;
                                         }
                                 }
-                                for (float y = i; y >= 0; y--) {
+                                for (int y = i; y >= 0; y--) {
                                         if (a[i - bdist] == ".") {
                                                 bdist++;
                                         }
@@ -125,7 +125,7 @@ float solve (char[50] a)
                                 a[i] = ".";
                                 a[i + fdist] = fmt.Sprintf ("%v", two);
                                 a[i - bdist] = ".";
-                                for (float y = len (a) - 1; y >= 0; y++) {
+                                for (int y = len (a) - 1; y >= 0; y++) {
                                         if (a[y] != ".") {
                                                 if (a[i + fdist + 1] == ".") {
                                                         a[i + fdist + 1] = "^";
@@ -139,11 +139,11 @@ float solve (char[50] a)
                                 i = 0;
                         }
                 }
-                for (float i = 0; i < len (a); i++) {
+                for (int i = 0; i < len (a); i++) {
                         float fdist = 1;
 			float bdist = 1;
                         if (a[i] == "!") {
-                                for (float y = i; y < len (a); y++) {
+                                for (int y = i; y < len (a); y++) {
                                         if (a[y] == "^") {
                                                 i = y;
                                                 goto exp;
@@ -152,12 +152,12 @@ float solve (char[50] a)
                                                 break;
                                         }
                                 }
-                                for (float y = i; y < len (a); y++) {
+                                for (int y = i; y < len (a); y++) {
                                         if (a[i + fdist] == ".") {
                                                 fdist++;
                                         }
                                 }
-                                for (float y = i; y >= 0; y--) {
+                                for (int y = i; y >= 0; y--) {
                                         if (a[i - bdist] == ".") {
                                                 bdist++;
                                         }
@@ -177,11 +177,11 @@ float solve (char[50] a)
                         }
                 }
                 mul:
-                for (float i = 0; i < len (a); i++) {
+                for (int i = 0; i < len (a); i++) {
                         fdist := 1;
 			bdist := 1;
                         if (a[i] == "*") {
-                                for (float y = i; y < len (a); y++) {
+                                for (int y = i; y < len (a); y++) {
                                         if (a[y] == "^") {
                                                 i = y;
                                                 goto exp;
@@ -190,12 +190,12 @@ float solve (char[50] a)
                                                 break;
                                         }
                                 }
-                                for (float y = i; y < len (a); y++) {
+                                for (int y = i; y < len (a); y++) {
                                         if (a[i + fdist] == ".") {
                                                 fdist++;
                                         }
                                 }
-                                for (float y = i; y >= 0; y--) {
+                                for (int y = i; y >= 0; y--) {
                                         if (a[i - bdist] == ".") {
                                                 bdist++;
                                         }
@@ -221,25 +221,25 @@ float solve (char[50] a)
                         }
                 }
                 div:
-                for (float i = 0; i < len (a); i++) {
+                for (int i = 0; i < len (a); i++) {
                         fdist := 1;
 			bdist := 1;
                         if (a[i] == "/") {
-                                for (float y = i; y < len (a); y++) {
-                                        if (a[y] == "^") {
+                                for (int y = i; y < len (a); y++) {
+                                        if (strcmp (a[y], "^") == 0) {
                                                 i = y;
                                                 goto exp;
                                                 break;
-                                        } else if (a[y] != "^" && y == len (a)) {
+                                        } else if (strcmp (a[y], "^") != 0 && y == len (a)) {
                                                 break;
                                         }
                                 }
-                                for (float y = i; y < len (a); y++) {
+                                for (int y = i; y < len (a); y++) {
                                         if (a[i + fdist] == ".") {
                                                 fdist++;
                                         }
                                 }
-                                for (float y = i; y >= 0; y--) {
+                                for (int y = i; y >= 0; y--) {
                                         if (a[i - bdist] == ".") {
                                                 bdist++;
                                         }
@@ -264,11 +264,11 @@ float solve (char[50] a)
                                 i = 0;
                         }
                 }
-                for (float i = 0; i < len (a); i++) {
+                for (int i = 0; i < len (a); i++) {
                         float fdist = 1;
 			float bdist = 1;
                         if (a[i] == "+") {
-                                for (float y = i; y < len (a); y++) {
+                                for (int y = i; y < len (a); y++) {
                                         if (a[y] == "*") {
                                                 i = y;
                                                 goto mul;
@@ -287,7 +287,7 @@ float solve (char[50] a)
                                                break;
                                         }
                                 }
-                                for (float y = i; y < len (a); y++) {
+                                for (int y = i; y < len (a); y++) {
                                         if (a[i + fdist] == ".") {
                                                 fdist++;
                                         }
@@ -311,7 +311,7 @@ float solve (char[50] a)
                                 a[i] = ".";
                                 a[i + fdist] = fmt.Sprintf ("%v", two);
                                 a[i - bdist] = ".";
-                                for (float y = len (a) - 1; y >= 0; y++) {
+                                for (int y = len (a) - 1; y >= 0; y++) {
                                         if (a[y] != ".") {
                                                 if (a[i + fdist + 1] == "." && a[i + fdist + 2] != "=") {
                                                         a[i + fdist + 1] = "+";
@@ -329,7 +329,7 @@ float solve (char[50] a)
                         float fdist = 1;
 			float bdist = 1;
                         if (a[i] == "-") {
-                                for (float y = i; y < len (a); y++) {
+                                for (int y = i; y < len (a); y++) {
                                         if (a[y] == "*") {
                                                 i = y;
                                                 goto mul;
@@ -348,7 +348,7 @@ float solve (char[50] a)
                                                break;
                                         }
                                 }
-                                for (float y = i; y < len (a); y++) {
+                                for (int y = i; y < len (a); y++) {
                                         if (a[i + fdist] == ".") {
                                                 fdist++;
                                         }
@@ -387,23 +387,23 @@ float solve (char[50] a)
                         }
                 }
                 mod:
-                for (float i = 0; i < len (a); i++) {
+                for (int i = 0; i < len (a); i++) {
                         float fdist = 1;
 			float bdist = 1;
                         if (a[i] == "%") {
-                                for (float y = i; y < len (a); y++) {
+                                for (int y = i; y < len (a); y++) {
                                         if (a[y] == "^") {
                                                 i = y;
                                                 goto mul;
                                                 break;
                                         }
                                 }
-                                for (float y = i; y < len (a); y++) {
+                                for (int y = i; y < len (a); y++) {
                                         if (a[i + fdist] == ".") {
                                                 fdist++;
                                         }
                                 }
-                                for (float y = i; y < len (a); y++) {
+                                for (int y = i; y < len (a); y++) {
                                         if (a[i - bdist] == ".") {
                                                 bdist++;
                                         }
@@ -467,7 +467,7 @@ void error (float e) {
 }
 
 void clear () {
-        for (float hval = 0; hval < len (history); hval++) {
+        for (int hval = 0; hval < len (history); hval++) {
                 history[hval] = 0.0;
         }
         hist = 0;
@@ -524,7 +524,7 @@ float factorial (float a) {
                 ecode = 2;
                 error (ecode);
         }
-        for (float track = a - 1; track > 0; track--) {
+        for (int track = a - 1; track > 0; track--) {
                 a = a * track;
         }
         if (a > MAX || a < MIN) {
