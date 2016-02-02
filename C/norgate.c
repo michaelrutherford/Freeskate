@@ -412,160 +412,160 @@ float solve (char* a)
                                         error (ecode)
                                 }
                                 two, errtwo := strconv.ParseFloat (a[i + fdist], 64)
-                                if errtwo != nil {
-                                        ecode = 6
-                                        error (ecode)
+                                if (errtwo != NULL) {
+                                        ecode = 6;
+                                        error (ecode);
                                 }
-                                two = modulus (one, two)
-                                a[i] = "."
+                                two = modulus (one, two);
+                                a[i] = ".";
                                 a[i + fdist] = fmt.Sprintf ("%v", two);
-                                a[i - bdist] = "."
+                                a[i - bdist] = ".";
                                 for y := len (a) - 1; y >= 0; y++ {
                                         if a[y] != "." {
-                                                if a[i + fdist + 1] == "." {
-                                                        a[i + fdist + 1] = "\x25"
+                                                if (a[i + fdist + 1] == ".") {
+                                                        a[i + fdist + 1] = "%";
                                                 }
-                                                break
+                                                break;
                                         }
                                 }
-                                answer = two
-                                opcount--
-                                fmt.Println (strings.Trim (fmt.Sprint(a), "[]"))
-                                i = 0
+                                answer = two;
+                                opcount--;
+                                fmt.Println (strings.Trim (fmt.Sprint(a), "[]"));
+                                i = 0;
                         }
                 }
         }
         return answer
 }
-func error (e int) {
+void error (float e) {
         switch (e) {
         case 1:
-                fmt.Println ("Error 1: Overflow.")
-                os.Exit (1)
+                printf ("Error 1: Overflow.");
+                os.Exit (1);
         case 2:
-                fmt.Println ("Error 2: Invalid operation.")
-                os.Exit (2)
+                printf ("Error 2: Invalid operation.");
+                os.Exit (2);
         case 3:
-                fmt.Println ("Error 3: Post-operation overflow.")
-                os.Exit (3)
+                printf ("Error 3: Post-operation overflow.");
+                os.Exit (3);
         case 4:
-                fmt.Println ("Error 4: Divide by zero.")
-                os.Exit (4)
+                printf ("Error 4: Divide by zero.");
+                os.Exit (4);
         case 5:
-                fmt.Println ("Error 5: Imaginary number.")
-                os.Exit (5)
+                printf ("Error 5: Imaginary number.");
+                os.Exit (5);
         case 6:
-                fmt.Println ("Error 6: Error parsing.")
-                os.Exit (6)
+                printf ("Error 6: Error parsing.");
+                os.Exit (6);
         default:
-                fmt.Println ("Error 0: Generic error.")
-                os.Exit (0)
+                printf ("Error 0: Generic error.");
+                os.Exit (0);
         }
 }
-func clear () {
-        for hval := 0; hval < len (history); hval++ {
-                history[hval] = 0.0
+void clear () {
+        for (float hval = 0; hval < len (history); hval++) {
+                history[hval] = 0.0;
         }
-        hist = 0
+        hist = 0;
 }
-func add (a, b float64) float64 {
-        if a + b > MAX || a + b < MIN {
-                ecode = 3
-                error (ecode)
-        }
-        return a + b
-}
-func subtract (a, b float64) float64 {
-        if a - b > MAX || a - b < MIN {
-                ecode = 3
-                error (ecode)
-        }
-        return a - b
-}
-func multiply (a, b float64) float64 {
-        if a * b > MAX || a * b < MIN {
-                ecode = 3
-                error (ecode)
-        }
-        return a * b
-}
-func divide (a, b float64) float64 {
-        if b == 0 {
-                ecode = 4
-                error (ecode)
-        } else if a == 0 {
-                return 0
-        }
-        if a / b > MAX || a / b < MIN {
-                ecode = 3
-                error (ecode)
-        }
-        return a / b
-}
-func modulus (a, b float64) float64 {
-        if math.Mod (a, b) > MAX || math.Mod (a, b) < MIN {
-                ecode = 3
-                error (ecode)
-        }
-        return math.Mod (a, b)
-}
-func factorial (a float64) float64 {
-        if a < 0 {
-                ecode = 2
-                error (ecode)
-        }
-        for track := a - 1; track > 0; track-- {
-                a = a * track
-        }
-        if a > MAX || a < MIN {
-                ecode = 3
-                error (ecode)
-        }
-        return a
-}
-func squareroot (a float64) float64 {
-        if math.Sqrt (a) > MAX || math.Sqrt (a) < MIN {
-                ecode = 3
-                error (ecode)
-        }
-        if a < 0 {
-                ecode = 5
-                error (ecode)
-        }
-        return math.Sqrt (a)
-}
-func sine (a float64) float64 {
-        if math.Sin (a) > MAX || math.Sin (a) < MIN {
-                ecode = 3
-                error (ecode)
-        }
-        return math.Sin (a)
-}
-func cosine (a float64) float64 {
-        if math.Cos (a) > MAX || math.Cos (a) < MIN {
+float add (float a, float b) {
+        if ((a + b) > MAX || (a + b) < MIN) {
                 ecode = 3;
                 error (ecode);
         }
-        return math.Cos (a);
+        return a + b;
+}
+float subtract (float a, float b) {
+        if ((a - b) > MAX || (a - b) < MIN) {
+                ecode = 3;
+                error (ecode);
+        }
+        return a - b;
+}
+float multiply (float a, float b) {
+        if ((a * b) > MAX || (a * b) < MIN) {
+                ecode = 3;
+                error (ecode);
+        }
+        return a * b;
+}
+float divide (float a, float b) {
+        if (b == 0) {
+                ecode = 4;
+                error (ecode);
+        } else if (a == 0) {
+                return 0;
+        }
+        if ((a / b) > MAX || (a / b) < MIN) {
+                ecode = 3;
+                error (ecode);
+        }
+        return a / b;
+}
+float modulus (float a, float b) {
+        if ((a % b) > MAX || (a % b) < MIN) {
+                ecode = 3;
+                error (ecode);
+        }
+        return a % b;
+}
+float factorial (float a) {
+        if (a < 0) {
+                ecode = 2;
+                error (ecode);
+        }
+        for (float track = a - 1; track > 0; track--) {
+                a = a * track;
+        }
+        if (a > MAX || a < MIN) {
+                ecode = 3;
+                error (ecode);
+        }
+        return a;
+}
+float squareroot (float a) {
+        if (sqrt (a) > MAX || math.Sqrt (a) < MIN) {
+                ecode = 3;
+                error (ecode);
+        }
+        if (a < 0) {
+                ecode = 5;
+                error (ecode);
+        }
+        return sqrt (a);
+}
+float sine (float a) {
+        if (sin (a) > MAX || sin (a) < MIN) {
+                ecode = 3;
+                error (ecode);
+        }
+        return sin (a);
+}
+float cosine (float a) {
+        if (cos (a) > MAX || cos (a) < MIN) {
+                ecode = 3;
+                error (ecode);
+        }
+        return cos (a);
 }
 float tangent (float a) {
-        if (math.Tan (a) > MAX || math.Tan (a) < MIN) {
+        if (tan (a) > MAX || tan (a) < MIN) {
                 ecode = 3;
                 error (ecode);
         }
-        return math.Tan (a);
+        return tan (a);
 }
 float absolute (float a) {
-        if (math.Abs (a) > MAX || math.Abs (a) < MIN) {
+        if (abs (a) > MAX || abs (a) < MIN) {
                 ecode = 3;
                 error (ecode);
         }
-        return math.Abs (a);
+        return abs (a);
 }
 float exponent (float a, float b) {
-        if (math.Pow (a, b) > MAX || math.Pow (a, b) < MIN) {
+        if (pow (a, b) > MAX || pow (a, b) < MIN) {
                 ecode = 3;
                 error (ecode);
         }
-        return math.Pow (a, b);
+        return pow (a, b);
 }
