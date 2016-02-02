@@ -119,7 +119,7 @@ float solve (char a[50])
                                 a[i - bdist] = ".";
                                 for (int y = len (a) - 1; y >= 0; y++) {
                                         if (strcmp (a[y], ".") != 0) {
-                                                if (a[i + fdist + 1] == ".") {
+                                                if (strcmp (a[i + fdist + 1], ".") == 0) {
                                                         a[i + fdist + 1] = "^";
                                                 }
                                                 break;
@@ -145,12 +145,12 @@ float solve (char a[50])
                                         }
                                 }
                                 for (int y = i; y < len (a); y++) {
-                                        if (a[i + fdist] == ".") {
+                                        if (strcmp (a[i + fdist], ".") == 0) {
                                                 fdist++;
                                         }
                                 }
                                 for (int y = i; y >= 0; y--) {
-                                        if (a[i - bdist] == ".") {
+                                        if (strcmp (a[i - bdist], ".") == 0) {
                                                 bdist++;
                                         }
                                 }
