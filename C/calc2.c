@@ -72,7 +72,7 @@ int main()
 			}
 		}
 		if(op == '@') {
-		  goto s;
+			goto s;
 		}
 		printf("ENTER A VALUE.");
 		printf("\n");
@@ -86,7 +86,7 @@ int main()
 			exit(0);
 		}
 		if(op == 'A' || op == '!' || op == 'R'
-		    || op == '@' || op == 'C') {
+		   || op == '@' || op == 'C') {
 			goto s;
 		}
 		printf("ENTER ANOTHER VALUE.");
@@ -156,36 +156,36 @@ int main()
 			act = 1;
 			break;
 			break;
-    case 'A':
+		case 'A':
 			ans = abv(fnum);
-	    printf("ABS(%.1f) = %.1f", fnum, ans);
+	       		printf("ABS(%.1f) = %.1f", fnum, ans);
 			printf("\n");
 			his[hct] = ans;
 			hct++;
 			hcn++;
-	    tst = 1;
+	    		tst = 1;
 		 	act = 1;
 			break;
 			break;
-	  case 'R':
+		case 'R':
 			ans = sqt(fnum);
-		  printf("SQRT(%.1f) = %.1f", fnum, ans);
+		        printf("SQRT(%.1f) = %.1f", fnum, ans);
 			printf("\n");
 			his[hct] = ans;
 			hct++;
 			hcn++;
-		  tst = 1;
+		        tst = 1;
 			act = 1;
 			break;
 			break;
-	  case 'C':
+	  	case 'C':
 			ans = cbt(fnum);
-		  printf("CBRT(%.1f) = %.1f", fnum, ans);
+		  	printf("CBRT(%.1f) = %.1f", fnum, ans);
 			printf("\n");
 			his[hct] = ans;
 			hct++;
 			hcn++;
-		  tst = 1;
+		  	tst = 1;
 			act = 1;
 			break;
 			break;
@@ -233,20 +233,20 @@ int main()
 			}
 			his[hct] = ans;
 			hct++;
-	   	tst = 1;
-		  act = 1;
+	   		tst = 1;
+		  	act = 1;
 			break;
 			break;
-	  case '!':
+	  	case '!':
 			ans = fct(fnum);
-		  printf("%.1f! = %.1f", fnum, ans);
+		  	printf("%.1f! = %.1f", fnum, ans);
 			printf("\n");
 			his[hct] = ans;
 			hct++;
 			hcn++;
-		  tst = 1;
-		  act = 1;
-		  break;
+		  	tst = 1;
+		  	act = 1;
+		  	break;
 			break;
 		default:
 			printf("ERROR 4");
@@ -256,7 +256,7 @@ int main()
 			break;
 			break;
 			exit(0);
-  	}
+  		}
 	}
 	if(err != 1 && tst == 1) {
 		goto r;
