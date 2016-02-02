@@ -14,9 +14,10 @@ See the License for the specific language governing permissions and
 limitations under the License.
 */
 
-#include <stdio.h>
 #include <math.h>
+#include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
 
 #define MAX 99999999
 #define MIN -99999999
@@ -36,7 +37,6 @@ int main ()
                 ecode = 6;
                 error (ecode);
         }
-        input = in;
         if (strcmp (input, "history") == 0) {
                 for (int hval = 0; hval < hist; hval++) {
                         printf ("%f\n", history[hval]);
@@ -100,7 +100,7 @@ float solve (char a[50])
                 for (int i = 0; i < len (a); i++) {
                         float fdist = 1;
 			float bdist = 1;
-                        if (a[i] == "^") {
+                        if (strcmp (a[i], "^") == 0) {
                                 for (int y = i; y < len (a); y++) {
                                         if (a[i + fdist] == ".") {
                                                 fdist++;
@@ -111,16 +111,8 @@ float solve (char a[50])
                                                 bdist++;
                                         }
                                 }
-                                one, err := strconv.ParseFloat (a[i - bdist], 64);
-                                if (err != NULL) {
-                                        ecode = 6;
-                                        error (ecode);
-                                }
-                                two, errtwo := strconv.ParseFloat (a[i + fdist], 64);
-                                if (errtwo != nil) {
-                                        ecode = 6;
-                                        error (ecode);
-                                }
+                                float one = atof (a[i - bdist]);
+                                float two = atof (a[i + fdist]);
                                 two = exponent (one, two);
                                 a[i] = ".";
                                 a[i + fdist] = fmt.Sprintf ("%v", two);
