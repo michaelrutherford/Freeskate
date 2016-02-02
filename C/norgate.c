@@ -39,7 +39,7 @@ int main ()
         input = in;
         if strings.Contains (input, "history") {
                 for (float hval = 0; hval < hist; hval++) {
-                        fmt.Println (history[hval]);
+                        printf ("%f", history[hval]);
                 }
         } else if (strings.Contains (input, "exit")) {
                 exit (0);
