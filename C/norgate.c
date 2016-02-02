@@ -170,15 +170,15 @@ float solve (char a[50])
                 }
                 mul:
                 for (int i = 0; i < len (a); i++) {
-                        fdist := 1;
-			bdist := 1;
-                        if (a[i] == "*") {
+                        float fdist = 1;
+			float bdist = 1;
+                        if (strcmp (a[i], "*") == 0) {
                                 for (int y = i; y < len (a); y++) {
                                         if (a[y] == "^") {
                                                 i = y;
                                                 goto exp;
                                                 break;
-                                        } else if (a[y] != "^" && y == len (a)) {
+                                        } else if (strcmp (a[y], "^") != 0 && y == len (a)) {
                                                 break;
                                         }
                                 }
@@ -192,16 +192,8 @@ float solve (char a[50])
                                                 bdist++;
                                         }
                                 }
-                                one, err := strconv.ParseFloat (a[i - bdist], 64);
-                                if (err != NULL) {
-                                        ecode = 6;
-                                        error (ecode);
-                                }
-                                two, errtwo := strconv.ParseFloat (a[i + fdist], 64);
-                                if (errtwo != NULL) {
-                                        ecode = 6;
-                                        error (ecode);
-                                }
+                                float one = atof (a[i - bdist]);
+                                float two = atof (a[i + fdist]);
                                 two = multiply (one, two);
                                 a[i] = ".";
                                 a[i + fdist] = fmt.Sprintf ("%v", two);
