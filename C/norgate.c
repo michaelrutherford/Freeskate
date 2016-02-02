@@ -105,12 +105,12 @@ float solve (char* a)
                                         }
                                 }
                                 for (float y = i; y >= 0; y--) {
-                                        if a[i - bdist] == "." {
-                                                bdist++
+                                        if (a[i - bdist] == ".") {
+                                                bdist++;
                                         }
                                 }
                                 one, err := strconv.ParseFloat (a[i - bdist], 64);
-                                if (err != nil) {
+                                if (err != NULL) {
                                         ecode = 6;
                                         error (ecode);
                                 }
@@ -237,181 +237,181 @@ float solve (char* a)
                                                 fdist++;
                                         }
                                 }
-                                for y := i; y >= 0; y-- {
-                                        if a[i - bdist] == "." {
-                                                bdist++
+                                for (float y = i; y >= 0; y--) {
+                                        if (a[i - bdist] == ".") {
+                                                bdist++;
                                         }
                                 }
-                                one, err := strconv.ParseFloat (a[i - bdist], 64)
-                                if err != nil {
-                                        ecode = 6
-                                        error (ecode)
+                                one, err := strconv.ParseFloat (a[i - bdist], 64);
+                                if (err != NULL) {
+                                        ecode = 6;
+                                        error (ecode);
                                 }
-                                two, errtwo := strconv.ParseFloat (a[i + fdist], 64)
-                                if errtwo != nil {
-                                        ecode = 6
-                                        error (ecode)
+                                two, errtwo := strconv.ParseFloat (a[i + fdist], 64);
+                                if (errtwo != NULL) {
+                                        ecode = 6;
+                                        error (ecode);
                                 }
-                                two = divide (one, two)
-                                a[i] = "."
+                                two = divide (one, two);
+                                a[i] = ".";
                                 a[i + fdist] = fmt.Sprintf ("%v", two);
-                                a[i - bdist] = "."
-                                answer = two
-                                opcount--
-                                fmt.Println (strings.Trim (fmt.Sprint(a), "[]"))
-                                i = 0
+                                a[i - bdist] = ".";
+                                answer = two;
+                                opcount--;
+                                fmt.Println (strings.Trim (fmt.Sprint(a), "[]"));
+                                i = 0;
                         }
                 }
-                for i := 0; i < len (a); i++ {
-                        fdist := 1
-			bdist := 1
-                        if a[i] == "+" {
-                                for y := i; y < len (a); y++ {
-                                        if a[y] == "*" {
-                                                i = y
-                                                goto mul
-                                                break
-                                        } else if a[y] == "/" {
-                                                i = y
-                                                goto div
-                                                break
-                                        } else if a[y] == "^" {
-                                               i = y
-                                               goto exp
-                                               break
-                                        } else if a[y] == "\x25" {
-                                               i = y
-                                               goto mod
-                                               break
+                for (float i = 0; i < len (a); i++) {
+                        float fdist = 1;
+			float bdist = 1;
+                        if (a[i] == "+") {
+                                for (float y = i; y < len (a); y++) {
+                                        if (a[y] == "*") {
+                                                i = y;
+                                                goto mul;
+                                                break;
+                                        } else if (a[y] == "/") {
+                                                i = y;
+                                                goto div;
+                                                break;
+                                        } else if (a[y] == "^") {
+                                               i = y;
+                                               goto exp;
+                                               break;
+                                        } else if (a[y] == "%") {
+                                               i = y;
+                                               goto mod;
+                                               break;
                                         }
                                 }
-                                for y := i; y < len (a); y++ {
-                                        if a[i + fdist] == "." {
-                                                fdist++
+                                for (float y = i; y < len (a); y++) {
+                                        if (a[i + fdist] == ".") {
+                                                fdist++;
                                         }
                                 }
-                                for y := i; y >= 0; y-- {
-                                        if a[i - bdist] == "." {
-                                                bdist++
+                                for (y := i; y >= 0; y--) {
+                                        if (a[i - bdist] == ".") {
+                                                bdist++;
                                         }
                                 }
-                                one, err := strconv.ParseFloat (a[i - bdist], 64)
-                                if err != nil {
-                                        ecode = 6
-                                        error (ecode)
+                                one, err := strconv.ParseFloat (a[i - bdist], 64);
+                                if (err != NULL) {
+                                        ecode = 6;
+                                        error (ecode);
                                 }
-                                two, errtwo := strconv.ParseFloat (a[i + fdist], 64)
-                                if errtwo != nil {
-                                        ecode = 6
-                                        error (ecode)
+                                two, errtwo := strconv.ParseFloat (a[i + fdist], 64);
+                                if (errtwo != NULL) {
+                                        ecode = 6;
+                                        error (ecode);
                                 }
-                                two = add (one, two)
-                                a[i] = "."
+                                two = add (one, two);
+                                a[i] = ".";
                                 a[i + fdist] = fmt.Sprintf ("%v", two);
-                                a[i - bdist] = "."
-                                for y := len (a) - 1; y >= 0; y++ {
-                                        if a[y] != "." {
-                                                if a[i + fdist + 1] == "." && a[i + fdist + 2] != "=" {
-                                                        a[i + fdist + 1] = "+"
+                                a[i - bdist] = ".";
+                                for (float y = len (a) - 1; y >= 0; y++) {
+                                        if (a[y] != ".") {
+                                                if (a[i + fdist + 1] == "." && a[i + fdist + 2] != "=") {
+                                                        a[i + fdist + 1] = "+";
                                                 }
-                                                break
+                                                break;
                                         }
                                 }
-                                answer = two
-                                opcount--
-                                fmt.Println (strings.Trim (fmt.Sprint(a), "[]"))
-                                i = 0
+                                answer = two;
+                                opcount--;
+                                fmt.Println (strings.Trim (fmt.Sprint(a), "[]"));
+                                i = 0;
                         }
                 }
-                for i := 0; i < len (a); i++ {
-                        fdist := 1
-			bdist := 1
-                        if a[i] == "-" {
-                                for y := i; y < len (a); y++ {
-                                        if a[y] == "*" {
-                                                i = y
-                                                goto mul
-                                                break
+                for (i = 0; i < len (a); i++) {
+                        float fdist = 1;
+			float bdist = 1;
+                        if (a[i] == "-") {
+                                for (float y = i; y < len (a); y++) {
+                                        if (a[y] == "*") {
+                                                i = y;
+                                                goto mul;
+                                                break;
                                         } else if a[y] == "/" {
-                                                i = y
-                                                goto div
-                                                break
+                                                i = y;
+                                                goto div;
+                                                break;
                                         } else if a[y] == "^" {
-                                               i = y
-                                               goto exp
-                                               break
+                                               i = y;
+                                               goto exp;
+                                               break;
                                         } else if a[y] == "\x25" {
-                                               i = y
-                                               goto mod
-                                               break
+                                               i = y;
+                                               goto mod;
+                                               break;
                                         }
                                 }
-                                for y := i; y < len (a); y++ {
-                                        if a[i + fdist] == "." {
-                                                fdist++
+                                for (float y = i; y < len (a); y++) {
+                                        if (a[i + fdist] == ".") {
+                                                fdist++;
                                         }
                                 }
                                 for y := i; y >= 0; y-- {
-                                        if a[i - bdist] == "." {
-                                                bdist++
+                                        if (a[i - bdist] == ".") {
+                                                bdist++;
                                         }
                                 }
-                                one, err := strconv.ParseFloat (a[i - bdist], 64)
-                                if err != nil {
-                                        ecode = 6
-                                        error (ecode)
+                                one, err := strconv.ParseFloat (a[i - bdist], 64);
+                                if (err != NULL) {
+                                        ecode = 6;
+                                        error (ecode);
                                 }
-                                two, errtwo := strconv.ParseFloat (a[i + fdist], 64)
-                                if errtwo != nil {
-                                        ecode = 6
-                                        error (ecode)
+                                two, errtwo := strconv.ParseFloat (a[i + fdist], 64);
+                                if (errtwo != NULL) {
+                                        ecode = 6;
+                                        error (ecode);
                                 }
-                                two = subtract (one, two)
-                                a[i] = "."
+                                two = subtract (one, two);
+                                a[i] = ".";
                                 a[i + fdist] = fmt.Sprintf ("%v", two);
-                                a[i - 1] = "."
+                                a[i - 1] = ".";
                                 for y := len (a) - 1; y >= 0; y++ {
-                                        if a[y] != "." {
-                                                if a[i + fdist + 1] == "." {
-                                                        a[i + fdist + 1] = "-"
+                                        if (a[y] != ".") {
+                                                if (a[i + fdist + 1] == ".") {
+                                                        a[i + fdist + 1] = "-";
                                                 }
-                                                break
+                                                break;
                                         }
                                 }
-                                answer = two
-                                opcount--
-                                fmt.Println (strings.Trim (fmt.Sprint(a), "[]"))
-                                i = 0
+                                answer = two;
+                                opcount--;
+                                fmt.Println (strings.Trim (fmt.Sprint(a), "[]"));
+                                i = 0;
                         }
                 }
                 mod:
-                for i := 0; i < len (a); i++ {
-                        fdist := 1
-			bdist := 1
-                        if a[i] == "\x25" {
-                                for y := i; y < len (a); y++ {
-                                        if a[y] == "^" {
-                                                i = y
-                                                goto mul
-                                                break
+                for (float i = 0; i < len (a); i++) {
+                        float fdist = 1;
+			float bdist = 1;
+                        if (a[i] == "%") {
+                                for (float y = i; y < len (a); y++) {
+                                        if (a[y] == "^") {
+                                                i = y;
+                                                goto mul;
+                                                break;
                                         }
                                 }
-                                for y := i; y < len (a); y++ {
-                                        if a[i + fdist] == "." {
-                                                fdist++
+                                for (float y = i; y < len (a); y++) {
+                                        if (a[i + fdist] == ".") {
+                                                fdist++;
                                         }
                                 }
-                                for y := i; y < len (a); y++ {
-                                        if a[i - bdist] == "." {
-                                                bdist++
+                                for (float y = i; y < len (a); y++) {
+                                        if (a[i - bdist] == ".") {
+                                                bdist++;
                                         }
                                 }
-                                one, err := strconv.ParseFloat (a[i - bdist], 64)
-                                if err != nil {
-                                        ecode = 6
-                                        error (ecode)
+                                one, err := strconv.ParseFloat (a[i - bdist], 64);
+                                if (err != NULL) {
+                                        ecode = 6;
+                                        error (ecode);
                                 }
-                                two, errtwo := strconv.ParseFloat (a[i + fdist], 64)
+                                two, errtwo := strconv.ParseFloat (a[i + fdist], 64);
                                 if (errtwo != NULL) {
                                         ecode = 6;
                                         error (ecode);
