@@ -15,6 +15,8 @@ limitations under the License.
 */
 
 #include <stdio.h>
+#include <math.h>
+#include <stdlib.h>
 
 #define MAX 99999999
 #define MIN -99999999
@@ -541,29 +543,29 @@ func sine (a float64) float64 {
 }
 func cosine (a float64) float64 {
         if math.Cos (a) > MAX || math.Cos (a) < MIN {
-                ecode = 3
-                error (ecode)
+                ecode = 3;
+                error (ecode);
         }
-        return math.Cos (a)
+        return math.Cos (a);
 }
-func tangent (a float64) float64 {
-        if math.Tan (a) > MAX || math.Tan (a) < MIN {
-                ecode = 3
-                error (ecode)
+float tangent (float a) {
+        if (math.Tan (a) > MAX || math.Tan (a) < MIN) {
+                ecode = 3;
+                error (ecode);
         }
-        return math.Tan (a)
+        return math.Tan (a);
 }
-func absolute (a float64) float64 {
-        if math.Abs (a) > MAX || math.Abs (a) < MIN {
-                ecode = 3
-                error (ecode)
+float absolute (float a) {
+        if (math.Abs (a) > MAX || math.Abs (a) < MIN) {
+                ecode = 3;
+                error (ecode);
         }
-        return math.Abs (a)
+        return math.Abs (a);
 }
-func exponent (a, b float64) float64 {
-        if math.Pow (a, b) > MAX || math.Pow (a, b) < MIN {
-                ecode = 3
-                error (ecode)
+float exponent (float a, float b) {
+        if (math.Pow (a, b) > MAX || math.Pow (a, b) < MIN) {
+                ecode = 3;
+                error (ecode);
         }
-        return math.Pow (a, b)
+        return math.Pow (a, b);
 }
