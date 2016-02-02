@@ -54,6 +54,7 @@ int main ()
         }
         goto start;
 }
+
 char[50] splice (char[50] a) 
 {
         char eqcoll[50];
@@ -65,6 +66,7 @@ char[50] splice (char[50] a)
         }
         return eqcoll;
 }
+
 float solve (char[50] a) 
 {
         float answer = 0;
@@ -437,6 +439,7 @@ float solve (char[50] a)
         }
         return answer
 }
+
 void error (float e) {
         switch (e) {
         case 1:
@@ -462,12 +465,14 @@ void error (float e) {
                 exit (0);
         }
 }
+
 void clear () {
         for (float hval = 0; hval < len (history); hval++) {
                 history[hval] = 0.0;
         }
         hist = 0;
 }
+
 float add (float a, float b) {
         if ((a + b) > MAX || (a + b) < MIN) {
                 ecode = 3;
@@ -475,6 +480,7 @@ float add (float a, float b) {
         }
         return a + b;
 }
+
 float subtract (float a, float b) {
         if ((a - b) > MAX || (a - b) < MIN) {
                 ecode = 3;
@@ -482,6 +488,7 @@ float subtract (float a, float b) {
         }
         return a - b;
 }
+
 float multiply (float a, float b) {
         if ((a * b) > MAX || (a * b) < MIN) {
                 ecode = 3;
@@ -489,6 +496,7 @@ float multiply (float a, float b) {
         }
         return a * b;
 }
+
 float divide (float a, float b) {
         if (b == 0) {
                 ecode = 4;
@@ -502,6 +510,7 @@ float divide (float a, float b) {
         }
         return a / b;
 }
+
 float modulus (float a, float b) {
         if ((a % b) > MAX || (a % b) < MIN) {
                 ecode = 3;
@@ -509,6 +518,7 @@ float modulus (float a, float b) {
         }
         return a % b;
 }
+
 float factorial (float a) {
         if (a < 0) {
                 ecode = 2;
@@ -523,6 +533,7 @@ float factorial (float a) {
         }
         return a;
 }
+
 float squareroot (float a) {
         if (sqrt (a) > MAX || math.Sqrt (a) < MIN) {
                 ecode = 3;
@@ -534,6 +545,7 @@ float squareroot (float a) {
         }
         return sqrt (a);
 }
+
 float sine (float a) {
         if (sin (a) > MAX || sin (a) < MIN) {
                 ecode = 3;
@@ -541,6 +553,7 @@ float sine (float a) {
         }
         return sin (a);
 }
+
 float cosine (float a) {
         if (cos (a) > MAX || cos (a) < MIN) {
                 ecode = 3;
@@ -548,6 +561,7 @@ float cosine (float a) {
         }
         return cos (a);
 }
+
 float tangent (float a) {
         if (tan (a) > MAX || tan (a) < MIN) {
                 ecode = 3;
@@ -555,6 +569,7 @@ float tangent (float a) {
         }
         return tan (a);
 }
+
 float absolute (float a) {
         if (abs (a) > MAX || abs (a) < MIN) {
                 ecode = 3;
@@ -562,6 +577,7 @@ float absolute (float a) {
         }
         return abs (a);
 }
+
 float exponent (float a, float b) {
         if (pow (a, b) > MAX || pow (a, b) < MIN) {
                 ecode = 3;
