@@ -72,25 +72,25 @@ float solve (char[50] a)
         float answer = 0;
         float opcount = 0;
         for (int t = 0; t < len (a); t++) {
-                if (a[t] == "*") {
+                if (strcmp (a[t], "*") == 0) {
                         opcount++;
                 }
-                if (a[t] == "/") {
+                if (strcmp (a[t], "/") == 0) {
                         opcount++;
                 }
-                if (a[t] == "+") {
+                if (strcmp (a[t], "+") == 0) {
                         opcount++;
                 }
-                if (a[t] == "-") {
+                if (strcmp (a[t], "-") == 0) {
                         opcount++;
                 }
-                if (a[t] == "%") {
+                if (strcmp (a[t], "%") == 0) {
                         opcount++;
                 }
-                if (a[t] == "^") {
+                if (strcmp (a[t], "^") == 0) {
                         opcount++;
                 }
-                if (a[t] == "!") {
+                if (strcmp (a[t], "!") == 0) {
                         opcount++;
                 }
         }
