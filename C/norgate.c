@@ -30,7 +30,7 @@ int main ()
         clear ();
         start:
         printf ("Enter an equation.\n")
-        char* input = "";
+        char[50] input = "";
         scanf ("%s", input);
         if (input != NULL) {
                 ecode = 6;
@@ -38,13 +38,13 @@ int main ()
         }
         input = in;
         if strings.Contains (input, "history") {
-                for hval := 0; hval < hist; hval++ {
+                for (float hval = 0; hval < hist; hval++) {
                         fmt.Println (history[hval]);
                 }
         } else if (strings.Contains (input, "exit")) {
-                os.Exit (0);
+                exit (0);
         } else {
-                calc := solve (splice (input));
+                char[50] calc = solve (splice (input));
                 if (hist >= 50) {
                         clear ();
                 }
@@ -54,9 +54,9 @@ int main ()
         }
         goto start;
 }
-char* splice (char* a) 
+char[50] splice (char[50] a) 
 {
-        char *eqcoll;
+        char eqcoll[50];
         if (strings.Contains (a, "=") == true) {
                 eqcoll = strings.Split (a, " ");
         } else {
@@ -65,7 +65,7 @@ char* splice (char* a)
         }
         return eqcoll;
 }
-float solve (char* a) 
+float solve (char[50] a) 
 {
         float answer = 0;
         float opcount = 0;
@@ -441,25 +441,25 @@ void error (float e) {
         switch (e) {
         case 1:
                 printf ("Error 1: Overflow.");
-                os.Exit (1);
+                exit (1);
         case 2:
                 printf ("Error 2: Invalid operation.");
-                os.Exit (2);
+                exit (2);
         case 3:
                 printf ("Error 3: Post-operation overflow.");
-                os.Exit (3);
+                exit (3);
         case 4:
                 printf ("Error 4: Divide by zero.");
-                os.Exit (4);
+                exit (4);
         case 5:
                 printf ("Error 5: Imaginary number.");
-                os.Exit (5);
+                exit (5);
         case 6:
                 printf ("Error 6: Error parsing.");
-                os.Exit (6);
+                exit (6);
         default:
                 printf ("Error 0: Generic error.");
-                os.Exit (0);
+                exit (0);
         }
 }
 void clear () {
