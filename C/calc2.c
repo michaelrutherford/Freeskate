@@ -72,7 +72,7 @@ int main()
 			}
 		}
 		if(op == '@') {
-			goto s;
+		  goto s;
 		}
 		printf("ENTER A VALUE.");
 		printf("\n");
