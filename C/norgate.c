@@ -37,11 +37,11 @@ int main ()
                 error (ecode);
         }
         input = in;
-        if strings.Contains (input, "history") {
+        if (strcmp (input, "history") == 0) {
                 for (int hval = 0; hval < hist; hval++) {
-                        printf ("%f", history[hval]);
+                        printf ("%f\n", history[hval]);
                 }
-        } else if (strings.Contains (input, "exit")) {
+        } else if (strcmp (input, "exit") == 0) {
                 exit (0);
         } else {
                 char calc[50] = solve (splice (input));
@@ -50,7 +50,7 @@ int main ()
                 }
                 history[hist] = calc;
                 hist++;
-                fmt.Print (calc, "\n");
+                printf ("%f\n", calc);
         }
         goto start;
 }
