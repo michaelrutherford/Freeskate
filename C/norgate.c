@@ -118,7 +118,7 @@ float solve (char a[50])
                                 a[i + fdist] = fmt.Sprintf ("%v", two);
                                 a[i - bdist] = ".";
                                 for (int y = len (a) - 1; y >= 0; y++) {
-                                        if (a[y] != ".") {
+                                        if (strcmp (a[y], ".") != 0) {
                                                 if (a[i + fdist + 1] == ".") {
                                                         a[i + fdist + 1] = "^";
                                                 }
