@@ -154,7 +154,7 @@ float solve (char a[50])
                                                 bdist++;
                                         }
                                 }
-                                one, err := strconv.ParseFloat (a[i - bdist], 64);
+                                one = atof (a[i - bdist]);
                                 if (err != NULL) {
                                         ecode = 6;
                                         error (ecode);
@@ -174,7 +174,7 @@ float solve (char a[50])
 			float bdist = 1;
                         if (strcmp (a[i], "*") == 0) {
                                 for (int y = i; y < len (a); y++) {
-                                        if (a[y] == "^") {
+                                        if (strcmp (a[y], "^") == 0) {
                                                 i = y;
                                                 goto exp;
                                                 break;
@@ -183,12 +183,12 @@ float solve (char a[50])
                                         }
                                 }
                                 for (int y = i; y < len (a); y++) {
-                                        if (a[i + fdist] == ".") {
+                                        if (strcmp (a[i + fdist], ".") == 0) {
                                                 fdist++;
                                         }
                                 }
                                 for (int y = i; y >= 0; y--) {
-                                        if (a[i - bdist] == ".") {
+                                        if (strcmp (a[i - bdist], ".") == 0) {
                                                 bdist++;
                                         }
                                 }
@@ -224,7 +224,7 @@ float solve (char a[50])
                                         }
                                 }
                                 for (int y = i; y >= 0; y--) {
-                                        if (a[i - bdist] == ".") {
+                                        if (strcmp (a[i - bdist], ".") == 0) {
                                                 bdist++;
                                         }
                                 }
