@@ -243,53 +243,45 @@ float solve (char a[50])
                 for (int i = 0; i < len (a); i++) {
                         float fdist = 1;
 			float bdist = 1;
-                        if (a[i] == "+") {
+                        if (strcmp (a[i], "+") == 0) {
                                 for (int y = i; y < len (a); y++) {
-                                        if (a[y] == "*") {
+                                        if (strcmp (a[y], "*") == 0) {
                                                 i = y;
                                                 goto mul;
                                                 break;
-                                        } else if (a[y] == "/") {
+                                        } else if (strcmp (a[y], "/") == 0) {
                                                 i = y;
                                                 goto div;
                                                 break;
-                                        } else if (a[y] == "^") {
+                                        } else if (strcmp (a[y], "^") == 0) {
                                                i = y;
                                                goto exp;
                                                break;
-                                        } else if (a[y] == "%") {
+                                        } else if (strcmp (a[y], "%") == 0) {
                                                i = y;
                                                goto mod;
                                                break;
                                         }
                                 }
                                 for (int y = i; y < len (a); y++) {
-                                        if (a[i + fdist] == ".") {
+                                        if (strcmp (a[i + fdist], ".") == 0) {
                                                 fdist++;
                                         }
                                 }
-                                for (y := i; y >= 0; y--) {
-                                        if (a[i - bdist] == ".") {
+                                for (int y = i; y >= 0; y--) {
+                                        if (strcmp (a[i - bdist], ".") == 0) {
                                                 bdist++;
                                         }
                                 }
-                                one, err := strconv.ParseFloat (a[i - bdist], 64);
-                                if (err != NULL) {
-                                        ecode = 6;
-                                        error (ecode);
-                                }
-                                two, errtwo := strconv.ParseFloat (a[i + fdist], 64);
-                                if (errtwo != NULL) {
-                                        ecode = 6;
-                                        error (ecode);
-                                }
+                                float one = atof (a[i - bdist]);
+                                float two = atof (a[i + fdist]);
                                 two = add (one, two);
                                 a[i] = ".";
                                 a[i + fdist] = fmt.Sprintf ("%v", two);
                                 a[i - bdist] = ".";
                                 for (int y = len (a) - 1; y >= 0; y++) {
-                                        if (a[y] != ".") {
-                                                if (a[i + fdist + 1] == "." && a[i + fdist + 2] != "=") {
+                                        if (strcmp (a[y], ".") != 0) {
+                                                if (strcmp (a[i + fdist + 1], ".") == 0 && strcmp (a[i + fdist + 2], "=") != 0) {
                                                         a[i + fdist + 1] = "+";
                                                 }
                                                 break;
@@ -304,7 +296,7 @@ float solve (char a[50])
                 for (i = 0; i < len (a); i++) {
                         float fdist = 1;
 			float bdist = 1;
-                        if (a[i] == "-") {
+                        if (strcmp (a[i], "-") == 0) {
                                 for (int y = i; y < len (a); y++) {
                                         if (a[y] == "*") {
                                                 i = y;
@@ -325,32 +317,24 @@ float solve (char a[50])
                                         }
                                 }
                                 for (int y = i; y < len (a); y++) {
-                                        if (a[i + fdist] == ".") {
+                                        if (strcmp (a[i + fdist], ".") == 0) {
                                                 fdist++;
                                         }
                                 }
-                                for y := i; y >= 0; y-- {
-                                        if (a[i - bdist] == ".") {
+                                for (int y = i; y >= 0; y--) {
+                                        if (strcmp (a[i - bdist] == ".") == 0) {
                                                 bdist++;
                                         }
                                 }
-                                one, err := strconv.ParseFloat (a[i - bdist], 64);
-                                if (err != NULL) {
-                                        ecode = 6;
-                                        error (ecode);
-                                }
-                                two, errtwo := strconv.ParseFloat (a[i + fdist], 64);
-                                if (errtwo != NULL) {
-                                        ecode = 6;
-                                        error (ecode);
-                                }
+                                one = atof (a[i - bdist]);
+                                two = atof (a[i + fdist]);
                                 two = subtract (one, two);
                                 a[i] = ".";
                                 a[i + fdist] = fmt.Sprintf ("%v", two);
                                 a[i - 1] = ".";
-                                for y := len (a) - 1; y >= 0; y++ {
-                                        if (a[y] != ".") {
-                                                if (a[i + fdist + 1] == ".") {
+                                for (int y = len (a) - 1; y >= 0; y++ {
+                                        if (strcmp (a[y], ".") != 0) {
+                                                if (strcmp (a[i + fdist + 1], ".") == 0) {
                                                         a[i + fdist + 1] = "-";
                                                 }
                                                 break;
@@ -366,41 +350,33 @@ float solve (char a[50])
                 for (int i = 0; i < len (a); i++) {
                         float fdist = 1;
 			float bdist = 1;
-                        if (a[i] == "%") {
+                        if (strcmp (a[i], "%") == 0) {
                                 for (int y = i; y < len (a); y++) {
-                                        if (a[y] == "^") {
+                                        if (strcmp (a[y], "^") == 0) {
                                                 i = y;
                                                 goto mul;
                                                 break;
                                         }
                                 }
                                 for (int y = i; y < len (a); y++) {
-                                        if (a[i + fdist] == ".") {
+                                        if (strcmp (a[i + fdist], ".") == 0) {
                                                 fdist++;
                                         }
                                 }
                                 for (int y = i; y < len (a); y++) {
-                                        if (a[i - bdist] == ".") {
+                                        if (strcmp (a[i - bdist], ".") == 0) {
                                                 bdist++;
                                         }
                                 }
-                                one, err := strconv.ParseFloat (a[i - bdist], 64);
-                                if (err != NULL) {
-                                        ecode = 6;
-                                        error (ecode);
-                                }
-                                two, errtwo := strconv.ParseFloat (a[i + fdist], 64);
-                                if (errtwo != NULL) {
-                                        ecode = 6;
-                                        error (ecode);
-                                }
+                                float one = atof (a[i - bdist]);
+                                float two = atof (a[i + fdist]);
                                 two = modulus (one, two);
                                 a[i] = ".";
                                 a[i + fdist] = fmt.Sprintf ("%v", two);
                                 a[i - bdist] = ".";
                                 for y := len (a) - 1; y >= 0; y++ {
-                                        if a[y] != "." {
-                                                if (a[i + fdist + 1] == ".") {
+                                        if (strcmp (a[y], ".") != 0) {
+                                                if (strcmp (a[i + fdist + 1], ".") == 0) {
                                                         a[i + fdist + 1] = "%";
                                                 }
                                                 break;
@@ -413,7 +389,7 @@ float solve (char a[50])
                         }
                 }
         }
-        return answer
+        return answer;
 }
 
 void error (float e) {
