@@ -115,7 +115,7 @@ float solve (char a[50])
                                 float two = atof (a[i + fdist]);
                                 two = exponent (one, two);
                                 a[i] = ".";
-                                a[i + fdist] = fmt.Sprintf ("%v", two);
+                                sprintf (a[i + fdist], "%f", two);
                                 a[i - bdist] = ".";
                                 for (int y = len (a) - 1; y >= 0; y++) {
                                         if (strcmp (a[y], ".") != 0) {
@@ -157,7 +157,7 @@ float solve (char a[50])
                                 one = atof (a[i - bdist]);
                                 one = factorial (one);
                                 a[i - bdist] = ".";
-                                a[i] = fmt.Sprintf ("%v", one);
+                                sprintf (a[i], "%f", one);
                                 answer = one;
                                 opcount--;
                                 printf ("%s", a);
@@ -192,7 +192,7 @@ float solve (char a[50])
                                 float two = atof (a[i + fdist]);
                                 two = multiply (one, two);
                                 a[i] = ".";
-                                a[i + fdist] = fmt.Sprintf ("%v", two);
+                                sprintf (a[i + fdist], "%f", two);
                                 a[i - bdist] = "."
                                 answer = two;
                                 opcount--;
@@ -228,7 +228,7 @@ float solve (char a[50])
                                 float two = atof (a[i + fdist]);
                                 two = divide (one, two);
                                 a[i] = ".";
-                                a[i + fdist] = fmt.Sprintf ("%v", two);
+                                sprintf (a[i + fdist], "%f", two);
                                 a[i - bdist] = ".";
                                 answer = two;
                                 opcount--;
@@ -273,7 +273,7 @@ float solve (char a[50])
                                 float two = atof (a[i + fdist]);
                                 two = add (one, two);
                                 a[i] = ".";
-                                a[i + fdist] = fmt.Sprintf ("%v", two);
+                                sprintf (a[i + fdist], "%f", two);
                                 a[i - bdist] = ".";
                                 for (int y = len (a) - 1; y >= 0; y++) {
                                         if (strcmp (a[y], ".") != 0) {
@@ -326,7 +326,7 @@ float solve (char a[50])
                                 two = atof (a[i + fdist]);
                                 two = subtract (one, two);
                                 a[i] = ".";
-                                a[i + fdist] = fmt.Sprintf ("%v", two);
+                                sprintf (a[i + fdist], "%f", two);
                                 a[i - 1] = ".";
                                 for (int y = len (a) - 1; y >= 0; y++ {
                                         if (strcmp (a[y], ".") != 0) {
@@ -368,7 +368,7 @@ float solve (char a[50])
                                 float two = atof (a[i + fdist]);
                                 two = modulus (one, two);
                                 a[i] = ".";
-                                a[i + fdist] = fmt.Sprintf ("%v", two);
+                                sprintf (a[i + fdist], "%f", two);
                                 a[i - bdist] = ".";
                                 for (int y = len (a) - 1; y >= 0; y++) {
                                         if (strcmp (a[y], ".") != 0) {
