@@ -58,7 +58,10 @@ int main (int argc, char *argv[])
 char[50] splice (char[50] a) 
 {
         char eqcoll[50];
-        if (strings.Contains (a, "=") == true) {
+        char *eqptr;
+        int eqsign = '=';
+        eqptr = strchr (a, eqsign);
+        if (eqptr != NULL) {
                 eqcoll = strings.Split (a, " ");
         } else {
                 ecode = 2;
