@@ -127,7 +127,7 @@ float solve (char a[50])
                                 }
                                 answer = two;
                                 opcount--;
-                                fmt.Println (strings.Trim (fmt.Sprint(a), "[]"));
+                                printf ("%s", a);
                                 i = 0;
                         }
                 }
@@ -160,7 +160,7 @@ float solve (char a[50])
                                 a[i] = fmt.Sprintf ("%v", one);
                                 answer = one;
                                 opcount--;
-                                fmt.Println (strings.Trim (fmt.Sprint(a), "[]"));
+                                printf ("%s", a);
                                 i = 0;
                         }
                 }
@@ -196,7 +196,7 @@ float solve (char a[50])
                                 a[i - bdist] = "."
                                 answer = two;
                                 opcount--;
-                                fmt.Println (strings.Trim (fmt.Sprint(a), "[]"));
+                                printf ("%s", a);
                                 i = 0;
                         }
                 }
@@ -232,7 +232,7 @@ float solve (char a[50])
                                 a[i - bdist] = ".";
                                 answer = two;
                                 opcount--;
-                                fmt.Println (strings.Trim (fmt.Sprint(a), "[]"));
+                                printf ("%s", a);
                                 i = 0;
                         }
                 }
@@ -285,7 +285,7 @@ float solve (char a[50])
                                 }
                                 answer = two;
                                 opcount--;
-                                fmt.Println (strings.Trim (fmt.Sprint(a), "[]"));
+                                printf ("%s", a);
                                 i = 0;
                         }
                 }
@@ -338,7 +338,7 @@ float solve (char a[50])
                                 }
                                 answer = two;
                                 opcount--;
-                                fmt.Println (strings.Trim (fmt.Sprint(a), "[]"));
+                                printf ("%s", a);
                                 i = 0;
                         }
                 }
@@ -380,7 +380,7 @@ float solve (char a[50])
                                 }
                                 answer = two;
                                 opcount--;
-                                fmt.Println (strings.Trim (fmt.Sprint(a), "[]"));
+                                printf ("%s", a);
                                 i = 0;
                         }
                 }
