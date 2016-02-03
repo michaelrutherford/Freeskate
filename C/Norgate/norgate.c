@@ -512,6 +512,15 @@ float sine (float a)
         return sin (a);
 }
 
+float arcsine (float a) 
+{
+        if (asin (a) > MAX || asin (a) < MIN) {
+                ecode = 3;
+                error (ecode);
+        }
+        return asin (a);
+}
+
 float cosine (float a) 
 {
         if (cos (a) > MAX || cos (a) < MIN) {
@@ -521,6 +530,15 @@ float cosine (float a)
         return cos (a);
 }
 
+float arccosine (float a) 
+{
+        if (acos (a) > MAX || acos (a) < MIN) {
+                ecode = 3;
+                error (ecode);
+        }
+        return acos (a);
+}
+
 float tangent (float a) 
 {
         if (tan (a) > MAX || tan (a) < MIN) {
@@ -528,6 +546,15 @@ float tangent (float a)
                 error (ecode);
         }
         return tan (a);
+}
+
+float arctangent (float a) 
+{
+        if (atan (a) > MAX || atan (a) < MIN) {
+                ecode = 3;
+                error (ecode);
+        }
+        return atan (a);
 }
 
 float absolute (float a) 
