@@ -102,12 +102,12 @@ float solve (char a[50])
 			float bdist = 1;
                         if (strcmp (a[i], "^") == 0) {
                                 for (int y = i; y < len (a); y++) {
-                                        if (a[i + fdist] == ".") {
+                                        if (strcmp (a[i + fdist], ".") == 0) {
                                                 fdist++;
                                         }
                                 }
                                 for (int y = i; y >= 0; y--) {
-                                        if (a[i - bdist] == ".") {
+                                        if (strcmp (a[i - bdist], ".") == 0) {
                                                 bdist++;
                                         }
                                 }
