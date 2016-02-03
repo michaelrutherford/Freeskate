@@ -559,11 +559,11 @@ float arctangent (float a)
 
 float absolute (float a) 
 {
-        if (abs (a) > MAX || abs (a) < MIN) {
+        if (fabs (a) > MAX || fabs (a) < MIN) {
                 ecode = 3;
                 error (ecode);
         }
-        return abs (a);
+        return fabs (a);
 }
 
 float exponent (float a, float b) 
