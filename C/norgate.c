@@ -155,10 +155,6 @@ float solve (char a[50])
                                         }
                                 }
                                 one = atof (a[i - bdist]);
-                                if (err != NULL) {
-                                        ecode = 6;
-                                        error (ecode);
-                                }
                                 one = factorial (one);
                                 a[i - bdist] = ".";
                                 a[i] = fmt.Sprintf ("%v", one);
@@ -206,9 +202,9 @@ float solve (char a[50])
                 }
                 div:
                 for (int i = 0; i < len (a); i++) {
-                        fdist := 1;
-			bdist := 1;
-                        if (a[i] == "/") {
+                        float fdist = 1;
+			float bdist = 1;
+                        if (strcmp (a[i], "/") == 0) {
                                 for (int y = i; y < len (a); y++) {
                                         if (strcmp (a[y], "^") == 0) {
                                                 i = y;
@@ -298,19 +294,19 @@ float solve (char a[50])
 			float bdist = 1;
                         if (strcmp (a[i], "-") == 0) {
                                 for (int y = i; y < len (a); y++) {
-                                        if (a[y] == "*") {
+                                        if (strcmp (a[y], "*") == 0) {
                                                 i = y;
                                                 goto mul;
                                                 break;
-                                        } else if a[y] == "/" {
+                                        } else if (strcmp (a[y], "/") == 0) {
                                                 i = y;
                                                 goto div;
                                                 break;
-                                        } else if a[y] == "^" {
+                                        } else if (strcmp (a[y], "^") == 0) {
                                                i = y;
                                                goto exp;
                                                break;
-                                        } else if a[y] == "\x25" {
+                                        } else if (strcmp (a[y], "%") == 0) {
                                                i = y;
                                                goto mod;
                                                break;
