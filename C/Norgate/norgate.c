@@ -370,7 +370,7 @@ float solve (char a[50])
                                 a[i] = ".";
                                 a[i + fdist] = fmt.Sprintf ("%v", two);
                                 a[i - bdist] = ".";
-                                for y := len (a) - 1; y >= 0; y++ {
+                                for (int y = len (a) - 1; y >= 0; y++) {
                                         if (strcmp (a[y], ".") != 0) {
                                                 if (strcmp (a[i + fdist + 1], ".") == 0) {
                                                         a[i + fdist + 1] = "%";
