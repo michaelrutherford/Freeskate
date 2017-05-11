@@ -1,76 +1,71 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include <time.h>
-int main() {
-	int trk = 0;
-	int uth = 0;
-	int lth = 0;
-	int hgh = 0;
-	int ans = 0;
-	int lct = 1;
-	int act = 1;
-	while (act != 0) {
-		switch (lct) {
+
+int main(int argc, char **argv) {
+	int guess_count = 0, upper_threshold = 0, lower_threshold = 0, high_score = 0, answer = 0;
+	int location = 1, active = 1;
+	while (active != 0) {
+		switch (location) {
 		case 1:
 			printf("GUESS A VALUE BETWEEN 0 AND 255\n");
-			int agn = 1;
-			int gss = 0;
-			trk = 0;
-			uth = 0;
-			lth = 0;
+			int play_again = 1;
+			int guess = 0;
+			guess_count = 0;
+			upper_threshold = 0;
+			lower_threshold = 0;
 			srand(time(NULL));
-			ans = rand() % 256;
-			lct = 2;
+			answer = rand() % 256;
+			location = 2;
 			break;
 		case 2:
-			scanf("%d", &gss);
-			if (gss == ans) {
-				printf("CORRECT. IT TOOK YOU %d ATTEMPTS\n", trk);
-				if (hgh == 0) {
-					hgh = trk;
-				} else if (hgh > trk) {
+			scanf("%d", &guess);
+			if (guess == answer) {
+				printf("CORRECT. IT TOOK YOU %d ATTEMPTS\n", guess_count);
+				if (high_score == 0) {
+					high_score = guess_count;
+				} else if (high_score > guess_count) {
 					printf("< < NEW HIGH SCORE > >\n");
-					hgh = trk;
+					high_score = guess_count;
 				}
-				printf("HIGH SCORE :: %d\n", hgh);
+				printf("HIGH SCORE :: %d\n", high_score);
 				printf("PLAY AGAIN? (0 = N/1 = Y)\n");
-				scanf("%d", &agn);
-				if (agn == 1) {
-					lct = 1;
+				scanf("%d", &play_again);
+				if (play_again == 1) {
+					location = 1;
 					break;
-				} else if (agn == 0) {
-					act = 0;
+				} else if (play_again == 0) {
+					active = 0;
 					return 1;
 				} else {
 					printf("INVALID RESPONSE.\n");
-					act = 0;
+					active = 0;
 					return 1;
 				}
 			} else {
-				if (gss > ans) {
-					if ((gss - ans) >= uth) {
-						if (uth != 0) {
-							printf("ANSWER IS NOT HIGHER THAN %d\n", (ans + uth));
+				if (guess > answer) {
+					if ((guess - answer) >= upper_threshold) {
+						if (upper_threshold != 0) {
+							printf("ANSWER IS NOT HIGHER THAN %d\n", (answer + upper_threshold));
 						} else {
-							uth = (gss - ans);
+							upper_threshold = (guess - answer);
 						}
 					} else {
-						uth = (gss - ans);
+						upper_threshold = (guess - answer);
 					}
 					printf("TOO HIGH. GUESS AGAIN.\n");
-					trk++;
-				} else if (gss < ans) {
-					if ((ans - gss) >= lth) {
-						if (lth != 0) {
-							printf("ANSWER IS NOT LOWER THAN %d\n", (ans - lth));
+					guess_count++;
+				} else if (guess < answer) {
+					if ((answer - guess) >= lower_threshold) {
+						if (lower_threshold != 0) {
+							printf("ANSWER IS NOT LOWER THAN %d\n", (answer - lower_threshold));
 						} else {
-							lth = (ans - gss);
+							lower_threshold = (answer - guess);
 						}
 					} else {
-						lth = (ans - gss);
+						lower_threshold = (answer - guess);
 					}
 					printf("TOO LOW. GUESS AGAIN.\n");
-					trk++;
+					guess_count++;
 				}
 			}
 		default:
