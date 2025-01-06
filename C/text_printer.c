@@ -1,11 +1,13 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+
 int main (int argc, char **argv)
 {
 	FILE *example;
 	char input;
 	char typeinput[5];
+	
 	printf ("File type: ");
 	scanf ("%s", &typeinput);
 	char filetype[29] = "/home/example.";
