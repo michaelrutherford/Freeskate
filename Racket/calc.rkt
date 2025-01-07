@@ -1,6 +1,8 @@
 #lang racket
+
 (define MAX 999)
 (define MIN -999)
+
 (define (add f s)
   (cond [(not (integer? f)) (error "Parsing Error")]
         [(not (integer? s)) (error "Parsing Error")]
@@ -42,4 +44,5 @@
         [(> (sqrt f) MAX) (error "Overflow Error")]
         [(< (sqrt f) MIN) (error "Overflow Error")]
         [else (sqrt f)]))
+
 "Enter an equation."
