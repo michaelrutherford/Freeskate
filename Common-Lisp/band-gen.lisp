@@ -22,6 +22,7 @@
                        falcon     trashcan
                        rock       knight
                        particle   terrace))
+
 (defparameter *adjv* '(flaming    blue
                        flying     cold
                        sad        red
@@ -42,6 +43,7 @@
                        sick       purple
                        psychic    majestic
                        evil       smokey))
+
 (defparameter *verb* '(punch    jump
                        fly      bend
                        swing    consume
@@ -55,7 +57,9 @@
                        fall     miss
                        freeze   create
                        remember burn))
+
 (defparameter *form* 0)
+
 (defun gen ()
   (setq *form* (random 7))
   (cond ((eq *form* 0) (list (elt *adjv* (random (length *adjv*)))
