@@ -1,5 +1,7 @@
 extern crate rand;
+
 const MAP_SIZE: usize = 25;
+
 struct Map {r: u8, m: [[u8; MAP_SIZE]; MAP_SIZE]}
 impl Map {
   fn generate(&mut self) {
@@ -52,6 +54,7 @@ impl Map {
     }
   }
 }
+
 fn main() {
   let mut map_1: Map = Map {r: 10, m: [[0; MAP_SIZE]; MAP_SIZE]};
   map_1.generate();
