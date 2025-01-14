@@ -1,7 +1,9 @@
 #include <stdio.h>
 #include <stdlib.h>
+
 #define MAX 9999999
 #define MIN -9999999
+
 float add(float, float);
 float sub(float, float);
 float mlt(float, float);
@@ -22,6 +24,7 @@ short hct;
 short hcn = 0;
 short mn;
 char op;
+
 int main()
 {
 	for(short i = 0; i <= 50; i++) {
